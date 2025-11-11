@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.fl {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+}
+
+.sidebar {
+  width: 264px;
+  color: #fff;
+  background-color: #d64200;
+}
+
+.logo {
+  margin: 24px 0 40px 24px;
+  width: 123px;
+  height: 136px;
+}
+
+.active {
+  background-color: #ffb69f;
+}
+
+.sidebar-title {
+  padding-left: 24px;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.displays-list {
+  list-style: none;
+}
+
+.displays-list-item {
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 57px;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  text-transform: capitalize;
+}
+
+.displays-list-item:hover {
+  cursor: pointer;
+  background-color: #ffb69f;
+}
+
+.content {
+  padding: 40px 100px 0 30px;
+}
+
+.content-block-header {
+  text-transform: capitalize;
+}
+
+.content-p {
+  font-size: 19px;
+  line-height: 172.8%;
+}
+
+.hidden {
+  display: none;
+}
+
+
+@media (max-width: 375px) {
+
+  .main {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 375px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-title {
+    margin-top: 10px;
+  }
+
+  .sidebar-title::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    position: absolute;
+    top: 16px;
+    right: 30px;
+  }
+
+  .closed::after {
+    transform: rotate(224deg);
+  }
+
+  .opened::after {
+    transform: rotate(45deg);
+  }
+
+  .logo {
+    display: flex;
+    align-self: flex-end;
+    order: 3;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    margin-top: 40px;
+  }
+
+  .hidden {
+  display: none;
+}
+}
