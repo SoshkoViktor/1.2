@@ -15,18 +15,39 @@
   height: 100vh;
   display: flex;
   font-family: "Roboto", sans-serif;
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
   width: 264px;
   color: #fff;
   background-color: #d64200;
+  @media (max-width: 375px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 375px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .logo {
   margin: 24px 0 40px 24px;
   width: 123px;
   height: 136px;
+
+  @media (max-width: 375px) {
+    display: flex;
+    align-self: flex-end;
+    order: 3;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .active {
@@ -37,6 +58,21 @@
   padding-left: 24px;
   margin-bottom: 10px;
   font-size: 22px;
+
+  @media (max-width: 375px) {
+    margin-top: 10px;
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      position: absolute;
+      top: 16px;
+      right: 30px;
+    }
+  }
 }
 
 .displays-list {
@@ -52,15 +88,18 @@
   font-size: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   text-transform: capitalize;
-}
 
-.displays-list-item:hover {
-  cursor: pointer;
-  background-color: #ffb69f;
+  &:hover {
+    cursor: pointer;
+    background-color: #ffb69f;
+  }
 }
 
 .content {
   padding: 40px 100px 0 30px;
+  @media (max-width: 375px) {
+    margin-top: 40px;
+  }
 }
 
 .content-block-header {
@@ -76,60 +115,12 @@
   display: none;
 }
 
-
 @media (max-width: 375px) {
-
-  .main {
-    flex-direction: column;
-  }
-  .sidebar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    max-width: 375px;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidebar-title {
-    margin-top: 10px;
-  }
-
-  .sidebar-title::after {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    position: absolute;
-    top: 16px;
-    right: 30px;
-  }
-
-  .closed::after {
+  .opened::after {
     transform: rotate(224deg);
   }
 
-  .opened::after {
+  .closed::after {
     transform: rotate(45deg);
   }
-
-  .logo {
-    display: flex;
-    align-self: flex-end;
-    order: 3;
-    margin-right: 20px;
-    margin-bottom: 20px;
-  }
-
-  .content {
-    margin-top: 40px;
-  }
-
-  .hidden {
-  display: none;
-}
 }
